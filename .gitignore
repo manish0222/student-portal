@@ -2,4 +2,5 @@
 *.out
 build/
 .vscode/
-*.pdf
+hw
+steps.txt
