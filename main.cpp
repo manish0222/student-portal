@@ -193,7 +193,13 @@ int main() {
     do {
         displayMenu();
         cout << "Enter your choice: ";
-        cin >> choice;
+
+        if (!(cin >> choice)) {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Invalid input. Please enter a number from 1 to 6.\n";
+            continue;
+        }
 
         if (choice == 1) {
             displayBooks(books);
@@ -208,7 +214,7 @@ int main() {
         } else if (choice == 6) {
             cout << "Thank you for using the Book Portal.\n";
         } else {
-            cout << "Invalid choice. Please try again.\n";
+            cout << "Invalid choice. Please enter a number from 1 to 6.\n";
         }
 
     } while (choice != 6);
