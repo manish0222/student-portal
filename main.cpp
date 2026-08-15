@@ -236,6 +236,23 @@ void displayProfile() {
     cout << "Email: " << currentProfile.email << "\n";
     cout << "Role: " << currentProfile.role << "\n";
 }
+void updateProfile() {
+    string name;
+    string email;
+
+    cin.ignore();
+
+    cout << "Enter new name: ";
+    getline(cin, name);
+
+    cout << "Enter new email: ";
+    getline(cin, email);
+
+    currentProfile.name = name;
+    currentProfile.email = email;
+
+    cout << "Profile updated successfully.\n";
+}
 void displayMenu() {
     cout << "\n===== BOOK PORTAL =====\n";
     displayLoginStatus();
