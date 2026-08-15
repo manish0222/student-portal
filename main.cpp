@@ -46,6 +46,22 @@ vector<Book> loadBooks() {
     return books;
 }
 
+void displayBooks(const vector<Book>& books) {
+    if (books.empty()) {
+        cout << "No books are currently available.\n";
+        return;
+    }
+
+    cout << "\n===== BOOKS =====\n";
+
+    for (const Book& book : books) {
+        cout << "ID: " << book.id
+             << " | Title: " << book.title
+             << " | Author: " << book.author
+             << " | Status: " << book.status << '\n';
+    }
+}
+
 void displayMenu() {
     cout << "\n===== BOOK PORTAL =====\n";
     cout << "1. View Books\n";
@@ -67,7 +83,9 @@ int main() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        if (choice >= 1 && choice <= 5) {
+        if (choice == 1) {
+            displayBooks(books);
+        } else if (choice >= 2 && choice <= 5) {
             cout << "This feature will be available soon.\n";
         } else if (choice == 6) {
             cout << "Thank you for using the Book Portal.\n";
