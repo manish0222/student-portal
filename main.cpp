@@ -37,7 +37,12 @@ struct Dashboard {
 };
 
 Dashboard currentDashboard = {0, 0, 0};
+struct Settings {
+    bool notifications;
+    bool darkMode;
+};
 
+Settings currentSettings = {true, false};
 void updateDashboard(const vector<Book>& books) {
     currentDashboard.totalBooks = books.size();
     currentDashboard.availableBooks = 0;
