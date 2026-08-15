@@ -88,6 +88,41 @@ void searchBook(const vector<Book>& books) {
     }
 }
 
+void addBook(vector<Book>& books) {
+    Book book;
+
+    cout << "Enter book ID: ";
+    cin >> book.id;
+
+    cin.ignore();
+
+    cout << "Enter book title: ";
+    getline(cin, book.title);
+
+    cout << "Enter author name: ";
+    getline(cin, book.author);
+
+    book.status = "Available";
+
+    ofstream file("books.txt", ios::app);
+
+    if (!file) {
+        cout << "Unable to open books.txt for writing.\n";
+        return;
+    }
+
+    file << book.id << '|'
+         << book.title << '|'
+         << book.author << '|'
+         << book.status << '\n';
+
+    file.close();
+
+    books.push_back(book);
+
+    cout << "Book added successfully.\n";
+}
+
 void displayMenu() {
     cout << "\n===== BOOK PORTAL =====\n";
     cout << "1. View Books\n";
@@ -113,7 +148,9 @@ int main() {
             displayBooks(books);
         } else if (choice == 2) {
             searchBook(books);
-        } else if (choice >= 3 && choice <= 5) {
+        } else if (choice == 3) {
+            addBook(books);
+        } else if (choice >= 4 && choice <= 5) {
             cout << "This feature will be available soon.\n";
         } else if (choice == 6) {
             cout << "Thank you for using the Book Portal.\n";
