@@ -46,6 +46,22 @@ vector<Book> loadBooks() {
     return books;
 }
 
+void saveBooks(const vector<Book>& books) {
+    ofstream file("books.txt");
+
+    if (!file) {
+        cout << "Unable to save books.txt\n";
+        return;
+    }
+
+    for (const Book& book : books) {
+        file << book.id << '|'
+             << book.title << '|'
+             << book.author << '|'
+             << book.status << '\n';
+    }
+}
+
 void displayBooks(const vector<Book>& books) {
     if (books.empty()) {
         cout << "No books are currently available.\n";
@@ -104,23 +120,34 @@ void addBook(vector<Book>& books) {
 
     book.status = "Available";
 
-    ofstream file("books.txt", ios::app);
-
-    if (!file) {
-        cout << "Unable to open books.txt for writing.\n";
-        return;
-    }
-
-    file << book.id << '|'
-         << book.title << '|'
-         << book.author << '|'
-         << book.status << '\n';
-
-    file.close();
-
     books.push_back(book);
+    saveBooks(books);
 
     cout << "Book added successfully.\n";
+}
+
+void borrowBook(vector<Book>& books) {
+    int id;
+
+    cout << "Enter book ID to borrow: ";
+    cin >> id;
+
+    for (Book& book : books) {
+        if (book.id == id) {
+            if (book.status == "Borrowed") {
+                cout << "Book is already borrowed.\n";
+                return;
+            }
+
+            book.status = "Borrowed";
+            saveBooks(books);
+
+            cout << "Book borrowed successfully.\n";
+            return;
+        }
+    }
+
+    cout << "Book with ID " << id << " was not found.\n";
 }
 
 void displayMenu() {
@@ -150,7 +177,9 @@ int main() {
             searchBook(books);
         } else if (choice == 3) {
             addBook(books);
-        } else if (choice >= 4 && choice <= 5) {
+        } else if (choice == 4) {
+            borrowBook(books);
+        } else if (choice == 5) {
             cout << "This feature will be available soon.\n";
         } else if (choice == 6) {
             cout << "Thank you for using the Book Portal.\n";
