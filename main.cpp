@@ -30,7 +30,13 @@ Profile currentProfile = {
     "admin@bookportal.com",
     "Administrator"
 };
+struct Dashboard {
+    int totalBooks;
+    int availableBooks;
+    int borrowedBooks;
+};
 
+Dashboard currentDashboard = {0, 0, 0};
 vector<Book> loadBooks() {
     vector<Book> books;
     ifstream file("data/catalog.txt");
