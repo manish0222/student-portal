@@ -1,0 +1,5 @@
+101|The Alchemist|Paulo Coelho|Borrowed
+102|1984|George Orwell|Available
+103|Clean Code|Robert Martin|Available
+104|The Pragmatic Programmer|David Thomas|Available
+105|J.K.Rowling|Harry Potter|Available
