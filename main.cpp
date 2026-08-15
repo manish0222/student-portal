@@ -150,6 +150,30 @@ void borrowBook(vector<Book>& books) {
     cout << "Book with ID " << id << " was not found.\n";
 }
 
+void returnBook(vector<Book>& books) {
+    int id;
+
+    cout << "Enter book ID to return: ";
+    cin >> id;
+
+    for (Book& book : books) {
+        if (book.id == id) {
+            if (book.status == "Available") {
+                cout << "Book is already available.\n";
+                return;
+            }
+
+            book.status = "Available";
+            saveBooks(books);
+
+            cout << "Book returned successfully.\n";
+            return;
+        }
+    }
+
+    cout << "Book with ID " << id << " was not found.\n";
+}
+
 void displayMenu() {
     cout << "\n===== BOOK PORTAL =====\n";
     cout << "1. View Books\n";
@@ -180,7 +204,7 @@ int main() {
         } else if (choice == 4) {
             borrowBook(books);
         } else if (choice == 5) {
-            cout << "This feature will be available soon.\n";
+            returnBook(books);
         } else if (choice == 6) {
             cout << "Thank you for using the Book Portal.\n";
         } else {
