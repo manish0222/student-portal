@@ -205,12 +205,22 @@ void returnBook(vector<Book>& books) {
 
 void displayMenu() {
     cout << "\n===== BOOK PORTAL =====\n";
-    cout << "1. View Books\n";
-    cout << "2. Search Book\n";
-    cout << "3. Add Book\n";
-    cout << "4. Borrow Book\n";
-    cout << "5. Return Book\n";
-    cout << "6. Exit\n";
+
+    if (currentUser.loggedIn) {
+        cout << "Logged in as: " << currentUser.username << "\n";
+        cout << "1. View Books\n";
+        cout << "2. Search Book\n";
+        cout << "3. Add Book\n";
+        cout << "4. Borrow Book\n";
+        cout << "5. Return Book\n";
+        cout << "6. Logout\n";
+        cout << "7. Exit\n";
+    } else {
+        cout << "1. Login\n";
+        cout << "2. View Books\n";
+        cout << "3. Search Book\n";
+        cout << "4. Exit\n";
+    }
 }
 
 int main() {
@@ -226,27 +236,44 @@ int main() {
         if (!(cin >> choice)) {
             cin.clear();
             cin.ignore(10000, '\n');
-            cout << "Invalid input. Please enter a number from 1 to 6.\n";
+            cout << "Invalid input.\n";
             continue;
         }
 
-        if (choice == 1) {
-            displayBooks(books);
-        } else if (choice == 2) {
-            searchBook(books);
-        } else if (choice == 3) {
-            addBook(books);
-        } else if (choice == 4) {
-            borrowBook(books);
-        } else if (choice == 5) {
-            returnBook(books);
-        } else if (choice == 6) {
-            cout << "Thank you for using the Book Portal.\n";
+        if (!currentUser.loggedIn) {
+            if (choice == 1) {
+                login();
+            } else if (choice == 2) {
+                displayBooks(books);
+            } else if (choice == 3) {
+                searchBook(books);
+            } else if (choice == 4) {
+                cout << "Thank you for using the Book Portal.\n";
+            } else {
+                cout << "Invalid choice.\n";
+            }
         } else {
-            cout << "Invalid choice. Please enter a number from 1 to 6.\n";
+            if (choice == 1) {
+                displayBooks(books);
+            } else if (choice == 2) {
+                searchBook(books);
+            } else if (choice == 3) {
+                addBook(books);
+            } else if (choice == 4) {
+                borrowBook(books);
+            } else if (choice == 5) {
+                returnBook(books);
+            } else if (choice == 6) {
+                currentUser.loggedIn = false;
+                cout << "Logged out successfully.\n";
+            } else if (choice == 7) {
+                cout << "Thank you for using the Book Portal.\n";
+            } else {
+                cout << "Invalid choice.\n";
+            }
         }
 
-    } while (choice != 6);
+    } while (currentUser.loggedIn || choice != 4);
 
     return 0;
 }
