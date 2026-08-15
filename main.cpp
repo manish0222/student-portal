@@ -86,6 +86,27 @@ void displayBooks(const vector<Book>& books) {
     }
 }
 
+bool login() {
+    string username;
+    string password;
+
+    cout << "Username: ";
+    cin >> username;
+
+    cout << "Password: ";
+    cin >> password;
+
+    if (username == currentUser.username &&
+        password == currentUser.password) {
+        currentUser.loggedIn = true;
+        cout << "Login successful.\n";
+        return true;
+    }
+
+    cout << "Invalid username or password.\n";
+    return false;
+}
+
 void searchBook(const vector<Book>& books) {
     string keyword;
     bool found = false;
