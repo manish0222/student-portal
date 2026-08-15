@@ -62,6 +62,32 @@ void displayBooks(const vector<Book>& books) {
     }
 }
 
+void searchBook(const vector<Book>& books) {
+    string keyword;
+    bool found = false;
+
+    cout << "Enter title or author to search: ";
+    cin.ignore();
+    getline(cin, keyword);
+
+    for (const Book& book : books) {
+        if (book.title.find(keyword) != string::npos ||
+            book.author.find(keyword) != string::npos) {
+
+            cout << "ID: " << book.id
+                 << " | Title: " << book.title
+                 << " | Author: " << book.author
+                 << " | Status: " << book.status << '\n';
+
+            found = true;
+        }
+    }
+
+    if (!found) {
+        cout << "No matching book found.\n";
+    }
+}
+
 void displayMenu() {
     cout << "\n===== BOOK PORTAL =====\n";
     cout << "1. View Books\n";
@@ -85,7 +111,9 @@ int main() {
 
         if (choice == 1) {
             displayBooks(books);
-        } else if (choice >= 2 && choice <= 5) {
+        } else if (choice == 2) {
+            searchBook(books);
+        } else if (choice >= 3 && choice <= 5) {
             cout << "This feature will be available soon.\n";
         } else if (choice == 6) {
             cout << "Thank you for using the Book Portal.\n";
