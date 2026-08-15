@@ -9,7 +9,7 @@ void displayMenu() {
     cout << "3. Add Book\n";
     cout << "4. Borrow Book\n";
     cout << "5. Return Book\n";
-    cout << "6. Exit\n";
+    cout << "6. Exit \n";
 }
 
 int main() {
