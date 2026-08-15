@@ -14,10 +14,10 @@ struct Book {
 
 vector<Book> loadBooks() {
     vector<Book> books;
-    ifstream file("books.txt");
+    ifstream file("data/catalog.txt");
 
     if (!file) {
-        cout << "Unable to open books.txt\n";
+        cout << "Unable to open data/catalog.txt\n";
         return books;
     }
 
@@ -47,10 +47,10 @@ vector<Book> loadBooks() {
 }
 
 void saveBooks(const vector<Book>& books) {
-    ofstream file("books.txt");
+    ofstream file("data/catalog.txt");
 
     if (!file) {
-        cout << "Unable to save books.txt\n";
+        cout << "Unable to save data/catalog.txt\n";
         return;
     }
 
