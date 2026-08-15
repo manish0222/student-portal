@@ -51,6 +51,14 @@ void updateDashboard(const vector<Book>& books) {
         }
     }
 }
+void displayDashboard(const vector<Book>& books) {
+    updateDashboard(books);
+
+    cout << "\n===== DASHBOARD =====\n";
+    cout << "Total Books: " << currentDashboard.totalBooks << "\n";
+    cout << "Available Books: " << currentDashboard.availableBooks << "\n";
+    cout << "Borrowed Books: " << currentDashboard.borrowedBooks << "\n";
+}
 vector<Book> loadBooks() {
     vector<Book> books;
     ifstream file("data/catalog.txt");
