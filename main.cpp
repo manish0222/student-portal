@@ -1,29 +1,36 @@
 #include <iostream>
-#include <string>
+
 using namespace std;
-void printWelcomeMessage() {
-    std::cout << "      Welcome to Git !       " << std::endl;
-}
 
-
-void greetUser() {
-    std::cout << "Hello, Developer!" << std::endl;
-}
-
-int addNumbers(int a, int b) {
-    return a + b;
+void displayMenu() {
+    cout << "\n===== BOOK PORTAL =====\n";
+    cout << "1. View Books\n";
+    cout << "2. Search Book\n";
+    cout << "3. Add Book\n";
+    cout << "4. Borrow Book\n";
+    cout << "5. Return Book\n";
+    cout << "6. Exit\n";
 }
 
 int main() {
-    printWelcomeMessage();
-    greetUser();
+    int choice;
 
-    int num1 = 5;
-    int num2 = 10;
-    int result = addNumbers(num1, num2);
+    cout << "Welcome to the Book Portal!\n";
 
-    std::cout << "The sum of " << num1 << " and " << num2 << " is: " << result << std::endl;
-    std::cout << "Program finished successfully." << std::endl;
+    do {
+        displayMenu();
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice >= 1 && choice <= 5) {
+            cout << "This feature will be available soon.\n";
+        } else if (choice == 6) {
+            cout << "Thank you for using the Book Portal.\n";
+        } else {
+            cout << "Invalid choice. Please try again.\n";
+        }
+
+    } while (choice != 6);
 
     return 0;
 }
