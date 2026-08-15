@@ -230,7 +230,12 @@ void returnBook(vector<Book>& books) {
 
     cout << "Book with ID " << id << " was not found.\n";
 }
-
+void displayProfile() {
+    cout << "\n===== USER PROFILE =====\n";
+    cout << "Name: " << currentProfile.name << "\n";
+    cout << "Email: " << currentProfile.email << "\n";
+    cout << "Role: " << currentProfile.role << "\n";
+}
 void displayMenu() {
     cout << "\n===== BOOK PORTAL =====\n";
     displayLoginStatus();
