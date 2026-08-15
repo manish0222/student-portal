@@ -37,6 +37,20 @@ struct Dashboard {
 };
 
 Dashboard currentDashboard = {0, 0, 0};
+
+void updateDashboard(const vector<Book>& books) {
+    currentDashboard.totalBooks = books.size();
+    currentDashboard.availableBooks = 0;
+    currentDashboard.borrowedBooks = 0;
+
+    for (const Book& book : books) {
+        if (book.status == "Available") {
+            currentDashboard.availableBooks++;
+        } else if (book.status == "Borrowed") {
+            currentDashboard.borrowedBooks++;
+        }
+    }
+}
 vector<Book> loadBooks() {
     vector<Book> books;
     ifstream file("data/catalog.txt");
