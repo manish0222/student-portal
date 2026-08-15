@@ -64,6 +64,13 @@ void displayDashboard(const vector<Book>& books) {
     cout << "Available Books: " << currentDashboard.availableBooks << "\n";
     cout << "Borrowed Books: " << currentDashboard.borrowedBooks << "\n";
 }
+void displaySettings() {
+    cout << "\n===== SETTINGS =====\n";
+    cout << "Notifications: "
+         << (currentSettings.notifications ? "Enabled" : "Disabled") << "\n";
+    cout << "Dark Mode: "
+         << (currentSettings.darkMode ? "Enabled" : "Disabled") << "\n";
+}
 vector<Book> loadBooks() {
     vector<Book> books;
     ifstream file("data/catalog.txt");
