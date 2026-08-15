@@ -19,6 +19,17 @@ struct Book {
     string author;
     string status;
 };
+struct Profile {
+    string name;
+    string email;
+    string role;
+};
+
+Profile currentProfile = {
+    "Admin User",
+    "admin@bookportal.com",
+    "Administrator"
+};
 
 vector<Book> loadBooks() {
     vector<Book> books;
