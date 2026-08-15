@@ -292,9 +292,10 @@ void displayMenu() {
         cout << "4. Borrow Book\n";
         cout << "5. Return Book\n";
         cout << "6. Logout\n";
-        cout << "7. View Profile\n";
-        cout << "8. Update Profile\n";
-        cout << "9. Exit\n";
+        cout << "7. Dashboard\n";
+        cout << "8. View Profile\n";
+        cout << "9. Update Profile\n";
+        cout << "10. Exit\n";
     } else {
         cout << "1. Login\n";
         cout << "2. View Books\n";
@@ -347,9 +348,14 @@ int main() {
                 currentUser.loggedIn = false;
                 cout << "Logged out successfully.\n";
             } else if (choice == 7) {
-                displayProfile();
+                displayDashboard(books);
             } else if (choice == 8) {
+                displayProfile();
+            } else if (choice == 9) {
                 updateProfile();
+            } else if (choice == 10) {
+                cout << "Thank you for using the Book Portal.\n";
+                break;
             } else {
                 cout << "Invalid choice.\n";
             }
