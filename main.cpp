@@ -325,7 +325,9 @@ void displayMenu() {
         cout << "7. Dashboard\n";
         cout << "8. View Profile\n";
         cout << "9. Update Profile\n";
-        cout << "10. Exit\n";
+        cout << "10. View Settings\n";
+        cout << "11. Update Settings\n";
+        cout << "12. Exit\n";
     } else {
         cout << "1. Login\n";
         cout << "2. View Books\n";
@@ -384,6 +386,10 @@ int main() {
             } else if (choice == 9) {
                 updateProfile();
             } else if (choice == 10) {
+                displaySettings();
+            } else if (choice == 11) {
+                updateSettings();
+            } else if (choice == 12) {
                 cout << "Thank you for using the Book Portal.\n";
                 break;
             } else {
