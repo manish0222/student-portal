@@ -71,6 +71,24 @@ void displaySettings() {
     cout << "Dark Mode: "
          << (currentSettings.darkMode ? "Enabled" : "Disabled") << "\n";
 }
+void updateSettings() {
+    int choice;
+
+    cout << "\n1. Toggle Notifications\n";
+    cout << "2. Toggle Dark Mode\n";
+    cout << "Enter choice: ";
+    cin >> choice;
+
+    if (choice == 1) {
+        currentSettings.notifications = !currentSettings.notifications;
+        cout << "Notifications updated.\n";
+    } else if (choice == 2) {
+        currentSettings.darkMode = !currentSettings.darkMode;
+        cout << "Dark mode updated.\n";
+    } else {
+        cout << "Invalid choice.\n";
+    }
+}
 vector<Book> loadBooks() {
     vector<Book> books;
     ifstream file("data/catalog.txt");
