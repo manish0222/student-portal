@@ -106,7 +106,12 @@ bool login() {
     cout << "Invalid username or password.\n";
     return false;
 }
-
+void displayLoginStatus() {
+    if (currentUser.loggedIn) {
+    } else {
+        cout << "Not logged in.\n";
+    }
+}
 void searchBook(const vector<Book>& books) {
     string keyword;
     bool found = false;
@@ -217,7 +222,7 @@ void returnBook(vector<Book>& books) {
 
 void displayMenu() {
     cout << "\n===== BOOK PORTAL =====\n";
-
+    displayLoginStatus();
     if (currentUser.loggedIn) {
         cout << "Logged in as: " << currentUser.username << "\n";
         cout << "1. View Books\n";
