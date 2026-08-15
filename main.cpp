@@ -5,6 +5,14 @@
 
 using namespace std;
 
+struct User {
+    string username;
+    string password;
+    bool loggedIn;
+};
+
+User currentUser = {"admin", "book123", false};
+
 struct Book {
     int id;
     string title;
