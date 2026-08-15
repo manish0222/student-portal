@@ -22,3 +22,13 @@ The Book Portal currently provides the following functionality:
 - Return borrowed books
 - Store book information in a local data file
 - Validate menu input and handle invalid choices
+
+## Project Structure
+
+```text
+student-portal/
+├── main.cpp
+├── data/
+│   └── catalog.txt
+├── README.md
+└── .gitignore
