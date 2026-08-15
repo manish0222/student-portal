@@ -134,6 +134,10 @@ void searchBook(const vector<Book>& books) {
 }
 
 void addBook(vector<Book>& books) {
+    if (!currentUser.loggedIn) {
+        cout << "Please login first.\n";
+        return;
+    }
     Book book;
 
     cout << "Enter book ID: ";
@@ -156,6 +160,10 @@ void addBook(vector<Book>& books) {
 }
 
 void borrowBook(vector<Book>& books) {
+    if (!currentUser.loggedIn) {
+        cout << "Please login first.\n";
+        return;
+    }
     int id;
 
     cout << "Enter book ID to borrow: ";
@@ -180,6 +188,10 @@ void borrowBook(vector<Book>& books) {
 }
 
 void returnBook(vector<Book>& books) {
+    if (!currentUser.loggedIn) {
+        cout << "Please login first.\n";
+        return;
+    }
     int id;
 
     cout << "Enter book ID to return: ";
