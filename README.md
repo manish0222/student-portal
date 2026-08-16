@@ -31,4 +31,4 @@ student-portal/
 ├── data/
 │   └── catalog.txt
 ├── README.md
-└── .gitignore
+└── .gitignorePart 7 misplaced commit practice
