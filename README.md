@@ -7,7 +7,7 @@ books.
 
 ## Project Goal
 
-This project is being developed as part of a Git lab activity to
+This project is being developed as a conflict-test branch activity to
 practice repository management, branching, merging, file operations,
 and Git workflows.
 
