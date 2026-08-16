@@ -171,7 +171,7 @@ Start Application
 ```
 
 The exact menu options shown depend on the current login state of the user.
-
+Login user admin as username and book123 as default passkeys
 ---
 
 ## Data Storage
