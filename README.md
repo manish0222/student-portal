@@ -31,4 +31,4 @@ student-portal/
 ├── data/
 │   └── catalog.txt
 ├── README.md
-└── .gitignore
+└── .gitignore\nPart 7 commit message practice
