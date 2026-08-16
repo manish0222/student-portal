@@ -32,3 +32,4 @@ student-portal/
 │   └── catalog.txt
 ├── README.md
 └── .gitignore\nPart 7 commit message practice
+Part 7 reflog recovery practice
